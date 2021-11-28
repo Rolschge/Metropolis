@@ -13,12 +13,41 @@
             return Math.floor(Math.random() * (max - min + 1)) + min;
         };
 
+        const vertausche = arr => {
+  var indexes = new Array(arr.length);
+  for (i = 0; i < arr.length; i++) {
+    indexes[i] = {
+      i : i,
+      num : Math.random()
+    };
+  }
+  console.log(indexes);
+  var sortedindexes = indexes.sort((a, b) => a.num - b.num);
+  var vertauscht = new Array(arr.length);
+  for (i = 0; i < arr.length; i++) {
+    vertauscht[i] = arr[sortedindexes[i].i];
+  }
+  return vertauscht;
+}
+
         const textdiv=document.getElementById("textdiv");
         textdiv.textContent="Hallo Welt";
 
-        const randomtext = function() {
-            return texte[getRandomNumber(0, texte.length-1)];
-        }
+        
+        const randomtext = (function(t) {
+            var texteInZufälligerOrdnung = vertausche(t);
+            var i = 0;
+
+            return function() {
+                i++;
+                if(i>t.length) {
+                    texteInZufälligerOrdnung = vertausche(t);
+                    i=0;
+                }
+                return texteInZufälligerOrdnung[i];
+            };
+        })(texte);
+       
 
         var btn = document.getElementById("nextbtn");
         btn.onclick = function(){
