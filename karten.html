@@ -1,12 +1,19 @@
 <html>
+    <head>
+        <link rel="stylesheet" href="karten.css">
+    </head>
     <body>
         <button id="nextbtn">Nächste</button>
     <div id="textdiv"></div>
     <script>
         const texte = [
-            "Solaranlagenpflicht. Zahle 100 für jedes Gebäude.",
-            "Die Mafia mag dich. Erhalte 10% jeder Mietzahlung der anderen Spieler wenn dir die Straße nicht gehört, bis du wieder über Los gegangen bist.",
-            "Zahnwurzelbehandlung. Schweige, bis du wieder über Los gegangen bist."
+            "A Solaranlagenpflicht. Zahle 100 für jedes Gebäude.",
+            "B Die Mafia mag dich. Erhalte 10% jeder Mietzahlung der anderen Spieler wenn dir die Straße nicht gehört, bis du wieder über Los gegangen bist.",
+            "C Zahnwurzelbehandlung. Schweige, bis du wieder über Los gegangen bist.",
+            "D Gehe ins Gefängnis.",
+            "E Du kommst aus dem Gefängnis frei.",
+            "F Neue ICE-Strecke eröffnet, rücke vor bis zum übernächsten Bahnhof.",
+            "E Neue Regio-Zugstreck eröffnet, rück vor bis zum nächsten Bahnhof.",
         ]
 
         const getRandomNumber = (min, max) => {
@@ -39,12 +46,12 @@
             var i = 0;
 
             return function() {
-                i++;
+                i++;                
                 if(i==t.length) {
                     texteInZufälligerOrdnung = vertausche(t);
                     i=0;
                 }
-                return "Karte " + i + " von " + t.length + ": " + texteInZufälligerOrdnung[i];
+                return "Karte " + (i+1) + " von " + t.length + ": " + texteInZufälligerOrdnung[i];
             };
         })(texte);
        
