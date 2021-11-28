@@ -3,12 +3,26 @@
         <button id="nextbtn">Nächste</button>
     <div id="textdiv"></div>
     <script>
-        var textdiv=document.getElementById("textdiv");
+        const texte = [
+            "Solaranlagenpflicht. Zahle 100 für jedes Gebäude.",
+            "Die Mafia mag dich. Erhalte 10% jeder Mietzahlung der anderen Spieler wenn dir die Straße nicht gehört, bis du wieder über Los gegangen bist.",
+            "Zahnwurzelbehandlung. Schweige, bis du wieder über Los gegangen bist."
+        ]
+
+        const getRandomNumber = (min, max) => {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        };
+
+        const textdiv=document.getElementById("textdiv");
         textdiv.textContent="Hallo Welt";
+
+        const randomtext = function() {
+            return texte[getRandomNumber(0, texte.length-1)];
+        }
 
         var btn = document.getElementById("nextbtn");
         btn.onclick = function(){
-textdiv.textContent="Hallo Tildi";
+            textdiv.textContent=randomtext();
         };
     </script>
     </body>
