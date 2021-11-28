@@ -7,7 +7,7 @@ body {
 }
 
 #countervon {
-    color: green;
+    color: red;
 }
 
 #countervon::before {
