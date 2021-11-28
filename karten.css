@@ -10,6 +10,18 @@ body {
     color: green;
 }
 
+#countervon::before {
+    content: "Karte ";
+}
+
 #countertotal {
     color: blue;
+}
+
+#countertotal::before {
+    content: " von ";
+}
+
+#countertotal::after {
+    content: ":";
 }
