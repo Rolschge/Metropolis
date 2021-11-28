@@ -4,7 +4,9 @@
     </head>
     <body>
         <button id="nextbtn">Nächste</button>
-    <div id="textdiv"></div>
+    <div id="countervon"></div>
+    <div id="countertotal"></div>
+    <div id="text"></div>
     <script>
         const texte = [
             "A Solaranlagenpflicht. Zahle 100 für jedes Gebäude.",
@@ -37,9 +39,9 @@
   return vertauscht;
 }
 
-        const textdiv=document.getElementById("textdiv");
-        textdiv.textContent="Hallo Welt";
-
+        const text=document.getElementById("text");
+        const countervon=document.getElementById("countervon");
+        const countertotal=document.getElementById("countertotal");
         
         const randomtext = (function(t) {
             var texteInZufälligerOrdnung = vertausche(t);
@@ -51,14 +53,20 @@
                     texteInZufälligerOrdnung = vertausche(t);
                     i=0;
                 }
-                return "Karte " + (i+1) + " von " + t.length + ": " + texteInZufälligerOrdnung[i];
+                return { current: (i+1),
+                    total : t.length,
+                    text : texteInZufälligerOrdnung[i]
+                };
             };
         })(texte);
        
 
         var btn = document.getElementById("nextbtn");
         btn.onclick = function(){
-            textdiv.textContent=randomtext();
+            var neu = randomtext();
+            text.textContent=neu.text;
+            countervon = neu.current;
+            countertotal = neu.total;
         };
     </script>
     </body>

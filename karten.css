@@ -5,3 +5,11 @@ body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     align-content: center;
 }
+
+#countervon {
+    color: green;
+}
+
+#countertotal {
+    color: blue;
+}
